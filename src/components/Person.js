@@ -8,23 +8,28 @@ const Person = ({ id, name, age, image }) => {
         <div style={{ marginRight: "10px" }}>
           <img
             className="rounded-circle"
-            src={image}
-            alt={name}
+            src={image || ""}
+            alt={name || ""}
             style={{ height: "70px", width: "70px" }}
           />
         </div>
         <div className="d-flex flex-column justify-content-center">
           <span>
-            <strong>{name}</strong>
+            <strong>{name || ""}</strong>
           </span>
           <br />
-          <span style={{ color: "#333638" }}>{age} years</span>
+          <span style={{ color: "#617d98" }}>{age} years</span>
         </div>
       </div>
     </>
   );
 };
 
-Person.propTypes = {};
+Person.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  age: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
+};
 
 export default Person;
